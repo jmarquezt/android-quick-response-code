@@ -23,12 +23,12 @@
                android:layout_height="fill_parent">
   </SurfaceView>
 
-  <com.jwetherell.quick_response_code.ViewfinderView
+  <com.jtm.qrcode.ViewfinderView
       android:id="@+id/viewfinder_view"
       android:layout_width="fill_parent"
       android:layout_height="fill_parent"
       android:background="@color/transparent">
-  </com.jwetherell.quick_response_code.ViewfinderView>
+  </com.jtm.qrcode.ViewfinderView>
 
   <LinearLayout android:id="@+id/result_view"
                 android:orientation="horizontal"
