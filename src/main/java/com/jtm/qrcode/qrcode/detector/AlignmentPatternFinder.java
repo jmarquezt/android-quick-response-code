@@ -24,26 +24,18 @@ import com.google.zxing.ResultPointCallback;
 import com.google.zxing.common.BitMatrix;
 
 /**
- * <p>
  * This class attempts to find alignment patterns in a QR Code. Alignment
  * patterns look like finder patterns but are smaller and appear at regular
  * intervals throughout the image.
- * </p>
- * 
- * <p>
+ *
  * At the moment this only looks for the bottom-right alignment pattern.
- * </p>
- * 
- * <p>
+ *
  * This is mostly a simplified copy of {@link FinderPatternFinder}. It is
  * copied, pasted and stripped down here for maximum performance but does
  * unfortunately duplicate some code.
- * </p>
- * 
- * <p>
+ *
  * This class is thread-safe but not reentrant. Each thread must allocate its
  * own object.
- * </p>
  * 
  * @author Sean Owen
  */
@@ -60,9 +52,7 @@ final class AlignmentPatternFinder {
     private final ResultPointCallback resultPointCallback;
 
     /**
-     * <p>
      * Creates a finder that will look in a portion of the whole image.
-     * </p>
      * 
      * @param image
      *            image to search
@@ -90,15 +80,11 @@ final class AlignmentPatternFinder {
     }
 
     /**
-     * <p>
      * This method attempts to find the bottom-right alignment pattern in the
      * image. It is a bit messy since it's pretty performance-critical and so is
      * written to be fast foremost.
-     * </p>
      * 
      * @return {@link AlignmentPattern} if found
-     * @throws NotFoundException
-     *             if not found
      */
     AlignmentPattern find() throws NotFoundException {
         int startX = this.startX;
@@ -197,11 +183,9 @@ final class AlignmentPatternFinder {
     }
 
     /**
-     * <p>
      * After a horizontal scan finds a potential alignment pattern, this method
      * "cross-checks" by scanning down vertically through the center of the
      * possible alignment pattern to see if the same proportion is detected.
-     * </p>
      * 
      * @param startI
      *            row where an alignment pattern was detected
@@ -268,12 +252,10 @@ final class AlignmentPatternFinder {
     }
 
     /**
-     * <p>
      * This is called when a horizontal scan finds a possible alignment pattern.
      * It will cross check with a vertical scan, and if successful, will see if
      * this pattern had been found on a previous horizontal scan. If so, we
      * consider it confirmed and conclude we have found the alignment pattern.
-     * </p>
      * 
      * @param stateCount
      *            reading state module counts from horizontal scan

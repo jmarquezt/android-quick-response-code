@@ -31,8 +31,6 @@ final class BitMatrixParser {
     /**
      * @param bitMatrix
      *            {@link BitMatrix} to parse
-     * @throws FormatException
-     *             if dimension is not >= 21 and 1 mod 4
      */
     BitMatrixParser(BitMatrix bitMatrix) throws FormatException {
         int dimension = bitMatrix.getHeight();
@@ -43,15 +41,10 @@ final class BitMatrixParser {
     }
 
     /**
-     * <p>
      * Reads format information from one of its two locations within the QR
      * Code.
-     * </p>
      * 
      * @return {@link FormatInformation} encapsulating the QR Code's format info
-     * @throws FormatException
-     *             if both format information locations cannot be parsed as the
-     *             valid encoding of format information
      */
     FormatInformation readFormatInformation() throws FormatException {
 
@@ -92,15 +85,10 @@ final class BitMatrixParser {
     }
 
     /**
-     * <p>
      * Reads version information from one of its two locations within the QR
      * Code.
-     * </p>
      * 
      * @return {@link Version} encapsulating the QR Code's version
-     * @throws FormatException
-     *             if both version information locations cannot be parsed as the
-     *             valid encoding of version information
      */
     Version readVersion() throws FormatException {
 
@@ -151,15 +139,11 @@ final class BitMatrixParser {
     }
 
     /**
-     * <p>
      * Reads the bits in the {@link BitMatrix} representing the finder pattern
      * in the correct order in order to reconstitute the codewords bytes
      * contained within the QR Code.
-     * </p>
      * 
      * @return bytes encoded within the QR Code
-     * @throws FormatException
-     *             if the exact number of bytes expected is not read
      */
     byte[] readCodewords() throws FormatException {
 

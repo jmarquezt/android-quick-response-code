@@ -86,8 +86,6 @@ public final class CameraManager {
      * @param holder
      *            The surface object which the camera will draw preview frames
      *            into.
-     * @throws IOException
-     *             Indicates the camera driver failed to open.
      */
     public void openDriver(SurfaceHolder holder) throws IOException {
         Camera theCamera = camera;

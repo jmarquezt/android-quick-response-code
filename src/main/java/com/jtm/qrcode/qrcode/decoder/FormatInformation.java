@@ -17,10 +17,8 @@
 package com.jtm.qrcode.qrcode.decoder;
 
 /**
- * <p>
  * Encapsulates a QR Code's format information, including the data mask used and
  * error correction level.
- * </p>
  * 
  * @author Sean Owen
  * @see DataMask

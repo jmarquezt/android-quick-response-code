@@ -17,10 +17,8 @@
 package com.jtm.qrcode.qrcode.decoder;
 
 /**
- * <p>
  * See ISO 18004:2006, 6.4.1, Tables 2 and 3. This enum encapsulates the various
  * modes in which data can be encoded to bits in the QR code standard.
- * </p>
  * 
  * @author Sean Owen
  */
@@ -49,8 +47,6 @@ public enum Mode {
      * @param bits
      *            four bits encoding a QR Code data mode
      * @return Mode encoded by these bits
-     * @throws IllegalArgumentException
-     *             if bits do not correspond to a known mode
      */
     public static Mode forBits(int bits) {
         switch (bits) {

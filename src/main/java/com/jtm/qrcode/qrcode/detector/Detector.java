@@ -30,10 +30,8 @@ import com.google.zxing.common.PerspectiveTransform;
 import com.jtm.qrcode.qrcode.decoder.Version;
 
 /**
- * <p>
  * Encapsulates logic that can detect a QR Code in an image, even if the QR Code
  * is rotated or skewed, or partially obscured.
- * </p>
  * 
  * @author Sean Owen
  */
@@ -55,32 +53,22 @@ public class Detector {
     }
 
     /**
-     * <p>
      * Detects a QR Code in an image, simply.
-     * </p>
      * 
-     * @return {@link DetectorResult} encapsulating results of detecting a QR
+     * @return DetectorResult encapsulating results of detecting a QR
      *         Code
-     * @throws NotFoundException
-     *             if no QR Code can be found
      */
     public DetectorResult detect() throws NotFoundException, FormatException {
         return detect(null);
     }
 
     /**
-     * <p>
      * Detects a QR Code in an image, simply.
-     * </p>
      * 
      * @param hints
      *            optional hints to detector
-     * @return {@link NotFoundException} encapsulating results of detecting a QR
+     * @return NotFoundException encapsulating results of detecting a QR
      *         Code
-     * @throws NotFoundException
-     *             if QR Code cannot be found
-     * @throws FormatException
-     *             if a QR Code cannot be decoded
      */
     public DetectorResult detect(Map<DecodeHintType, ?> hints) throws NotFoundException, FormatException {
 
@@ -174,10 +162,8 @@ public class Detector {
     }
 
     /**
-     * <p>
      * Computes the dimension (number of modules on a size) of the QR Code based
      * on the position of the finder patterns and estimated module size.
-     * </p>
      */
     protected static int computeDimension(ResultPoint topLeft, ResultPoint topRight, ResultPoint bottomLeft, float moduleSize) throws NotFoundException {
         int tltrCentersDimension = round(ResultPoint.distance(topLeft, topRight) / moduleSize);
@@ -198,10 +184,8 @@ public class Detector {
     }
 
     /**
-     * <p>
      * Computes an average estimated module size based on estimated derived from
      * the positions of the three finder patterns.
-     * </p>
      */
     protected float calculateModuleSize(ResultPoint topLeft, ResultPoint topRight, ResultPoint bottomLeft) {
         // Take the average
@@ -209,11 +193,9 @@ public class Detector {
     }
 
     /**
-     * <p>
      * Estimates module size based on two finder patterns -- it uses
      * {@link #sizeOfBlackWhiteBlackRunBothWays(int, int, int, int)} to figure
      * the width of each, measuring along the axis between their centers.
-     * </p>
      */
     private float calculateModuleSizeOneWay(ResultPoint pattern, ResultPoint otherPattern) {
         float moduleSizeEst1 = sizeOfBlackWhiteBlackRunBothWays((int) pattern.getX(), (int) pattern.getY(), (int) otherPattern.getX(),
@@ -272,17 +254,13 @@ public class Detector {
     }
 
     /**
-     * <p>
      * This method traces a line from a point in the image, in the direction
      * towards another point. It begins in a black region, and keeps going until
      * it finds white, then black, then white again. It reports the distance
      * from the start to this point.
-     * </p>
-     * 
-     * <p>
+     *
      * This is used when figuring out how wide a finder pattern is, when the
      * finder pattern may be skewed or rotated.
-     * </p>
      */
     private float sizeOfBlackWhiteBlackRun(int fromX, int fromY, int toX, int toY) {
         // Mild variant of Bresenham's algorithm;
@@ -352,11 +330,8 @@ public class Detector {
     }
 
     /**
-     * <p>
      * Attempts to locate an alignment pattern in a limited region of the image,
      * which is guessed to contain it. This method uses {@link AlignmentPattern}
-     * .
-     * </p>
      * 
      * @param overallEstModuleSize
      *            estimated module size so far
@@ -367,9 +342,7 @@ public class Detector {
      *            y coordinate of above
      * @param allowanceFactor
      *            number of pixels in all directions to search from the center
-     * @return {@link AlignmentPattern} if found, or null otherwise
-     * @throws NotFoundException
-     *             if an unexpected error occurs during detection
+     * @return AlignmentPattern if found, or null otherwise
      */
     protected AlignmentPattern findAlignmentInRegion(float overallEstModuleSize, int estAlignmentX, int estAlignmentY, float allowanceFactor)
             throws NotFoundException {

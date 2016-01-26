@@ -28,10 +28,8 @@ import com.google.zxing.common.reedsolomon.ReedSolomonDecoder;
 import com.google.zxing.common.reedsolomon.ReedSolomonException;
 
 /**
- * <p>
  * The main class which implements QR Code decoding -- as opposed to locating
  * and extracting the QR Code from an image.
- * </p>
  * 
  * @author Sean Owen
  */
@@ -48,18 +46,12 @@ public final class Decoder {
     }
 
     /**
-     * <p>
      * Convenience method that can decode a QR Code represented as a 2D array of
      * booleans. "true" is taken to mean a black module.
-     * </p>
      * 
      * @param image
      *            booleans representing white/black QR Code modules
      * @return text and bytes encoded within the QR Code
-     * @throws FormatException
-     *             if the QR Code cannot be decoded
-     * @throws ChecksumException
-     *             if error correction fails
      */
     public DecoderResult decode(boolean[][] image, Map<DecodeHintType, ?> hints) throws ChecksumException, FormatException {
         int dimension = image.length;
@@ -79,18 +71,12 @@ public final class Decoder {
     }
 
     /**
-     * <p>
-     * Decodes a QR Code represented as a {@link BitMatrix}. A 1 or "true" is
+     * Decodes a QR Code represented as a BitMatrix. A 1 or "true" is
      * taken to mean a black module.
-     * </p>
      * 
      * @param bits
      *            booleans representing white/black QR Code modules
      * @return text and bytes encoded within the QR Code
-     * @throws FormatException
-     *             if the QR Code cannot be decoded
-     * @throws ChecksumException
-     *             if error correction fails
      */
     public DecoderResult decode(BitMatrix bits, Map<DecodeHintType, ?> hints) throws FormatException, ChecksumException {
 
@@ -127,18 +113,14 @@ public final class Decoder {
     }
 
     /**
-     * <p>
      * Given data and error-correction codewords received, possibly corrupted by
      * errors, attempts to correct the errors in-place using Reed-Solomon error
      * correction.
-     * </p>
      * 
      * @param codewordBytes
      *            data and error correction codewords
      * @param numDataCodewords
      *            number of codewords that are data bytes
-     * @throws ChecksumException
-     *             if error correction fails
      */
     private void correctErrors(byte[] codewordBytes, int numDataCodewords) throws ChecksumException {
         int numCodewords = codewordBytes.length;

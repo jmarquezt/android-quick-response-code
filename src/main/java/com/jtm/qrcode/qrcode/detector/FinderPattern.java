@@ -19,11 +19,9 @@ package com.jtm.qrcode.qrcode.detector;
 import com.google.zxing.ResultPoint;
 
 /**
- * <p>
  * Encapsulates a finder pattern, which are the three square patterns found in
  * the corners of QR Codes. It also encapsulates a count of similar finder
  * patterns, as a convenience to the finder's bookkeeping.
- * </p>
  * 
  * @author Sean Owen
  */
@@ -55,11 +53,9 @@ public final class FinderPattern extends ResultPoint {
     }
 
     /**
-     * <p>
      * Determines if this finder pattern "about equals" a finder pattern at the
      * stated position and size -- meaning, it is at nearly the same center with
      * nearly the same size.
-     * </p>
      */
     boolean aboutEquals(float moduleSize, float i, float j) {
         if (Math.abs(i - getY()) <= moduleSize && Math.abs(j - getX()) <= moduleSize) {

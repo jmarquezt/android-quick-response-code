@@ -18,7 +18,7 @@ package com.jtm.qrcode.qrcode.encoder;
 
 /**
  * A class which wraps a 2D array of bytes. The default usage is signed. If you
- * want to use it as a unsigned container, it's up to you to do byteValue & 0xff
+ * want to use it as a unsigned container, it's up to you to do byteValue and 0xff
  * at each location.
  * 
  * JAVAPORT: The original code was a 2D array of ints, but since it only ever

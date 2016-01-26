@@ -54,12 +54,6 @@ public class QRCodeReader implements Reader {
      * Locates and decodes a QR code in an image.
      * 
      * @return a String representing the content encoded by the QR code
-     * @throws NotFoundException
-     *             if a QR code cannot be found
-     * @throws FormatException
-     *             if a QR code cannot be decoded
-     * @throws ChecksumException
-     *             if error correction fails
      */
     @Override
     public Result decode(BinaryBitmap image) throws NotFoundException, ChecksumException, FormatException {
